@@ -8,6 +8,7 @@ import LogIn from "./Auth/LogIn";
 import Home from "./Pages/Home";
 import SignUp from "./Auth/SignUp";
 import Navigation from "./NavBar/Navigation";
+import Cart from "./Pages/Cart"
 import ProductDescription from "./Pages/ProductDescription";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/menu" element={<Menu />} />
         <Route path="/service" element={<Service />} />
         <Route path="/login" element={<LogIn />} />
+        <Route path="/cart" element={<Cart />}/>
         <Route path="/signup" element={<SignUp />} />
         <Route
           path="/menu/productDescription/:id"

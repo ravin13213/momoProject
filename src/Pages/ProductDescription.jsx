@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { CartContext } from "../context/CartProvider";
 
 function ProductDescription() {
-  const {id}= useParams();
+  const { id } = useParams();
+  const { dispatch } = useContext(CartContext);
   const [product, setProduct] = useState();
-  const [ingredients, setIngredients]= useState([])
-  const [instructions, setInstruction]= useState([])
+  const [ingredients, setIngredients] = useState([]);
+  const [instructions, setInstruction] = useState([]);
   const getProduct = async () => {
     let response = await fetch(`https://dummyjson.com/recipes/${id}`);
     response = await response.json();
@@ -13,8 +15,8 @@ function ProductDescription() {
     // console.log(ingredients.product)
     // console.log(instructions.product)
     setProduct(response);
-    setIngredients(response.ingredients)
-    setInstruction(response.instructions)
+    setIngredients(response.ingredients);
+    setInstruction(response.instructions);
   };
   useEffect(() => {
     getProduct();
@@ -35,7 +37,12 @@ function ProductDescription() {
             <p>{product.rating}</p>
             <div className="space-x-3">
               <button className="bg-blue-500 text-white p-2">Buy Now</button>
-              <button className="bg-orange-300 text-white p-2">
+              <button
+                onClick={() => {
+                  dispatch({ type: "AddToCart", payload: product });
+                }}
+                className="bg-orange-300 text-white p-2"
+              >
                 Add To Cart
               </button>
             </div>
@@ -86,7 +93,6 @@ function ProductDescription() {
       </div>
     </div>
   );
- 
 }
 
 export default ProductDescription;

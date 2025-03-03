@@ -12,14 +12,14 @@ import party from "../assets/party.png";
 import catering from "../assets/catering.png";
 
 import { FaPlay } from "react-icons/fa";
-import woman from "../assets/woman.png"
+import woman from "../assets/woman.png";
 
 import { FaArrowRight } from "react-icons/fa6";
 
 function Home() {
   const navigate = useNavigate();
   return (
-    <div>
+    <>
       <div className="flex  justify-between ">
         <div className=" space-x-72 pt-20 ">
           <p className="relative left-72 text-gray-400 ">RESTAURANT</p>
@@ -174,10 +174,11 @@ function Home() {
       <section className="flex justify-around mt-20">
         <div className="mt-16 ">
           <b>
-            
             200+ <span className="text-orange-500">Happy Customers</span>
             <br />
-            <span className="text-cyan-700">What our customers say about us</span>
+            <span className="text-cyan-700">
+              What our customers say about us
+            </span>
           </b>
           <br /> <br />
           <span></span>
@@ -185,14 +186,114 @@ function Home() {
             "Only the best momo you can find in the market. <br />
             Different Varieties of momo to choose from. Will be visiting again
             soon."
-          </i><br /><br />
+          </i>
+          <br />
+          <br />
           <b>Livia Dias</b>
           <span></span>
         </div>
 
         <img className="h-96" src={woman} alt="" />
       </section>
-    </div>
+      <section className="flex justify-center">
+        <div>
+          <div className="flex items-center flex-col ">
+            <h1>
+              Get <span>in Touch </span>
+            </h1>{" "}
+            <br />
+            <span>Our Friendly team would love to hear from you</span>
+          </div>
+          <br /> <br />
+          <div className="flex justify-evenly">
+            <div>
+              Our Address <br />
+              New Baneshwor, Kathmandu, Bagmati, <br /> Nepal <br />
+              <br />
+              Our contacts <br />
+              <div>
+                <ul>
+                  <li>Mobile</li>
+                  <li>989343522</li>
+                  <li>983424324</li>
+                </ul>
+              </div>
+              <div>
+                <ul>
+                  <li>Landline</li>
+                  <li>01-2343432</li>
+                </ul>
+              </div>
+              <div>
+                Our Service Time
+                <div>
+                  <ul>
+                    <li>MON-FRI</li>
+                    <li>10am - 8om</li>
+                  </ul>
+                </div>
+                <div>
+                  <ul>
+                    <li>SAT-SUN</li>
+                    <li>Closed</li>
+                  </ul>
+                </div>
+                <br />
+                <br />
+                <br />
+                <br />
+               Get in touch in social networks
+              </div>
+            </div>
+
+            <br />
+
+            <br />
+
+            {/* form  */}
+            <div className="ml-52">
+              {/* <div></div> first name
+          <input type="text" /> */}
+              <label htmlFor="">First Name</label> <br />{" "}
+              <input className="border-2" type="text" /> <br />
+              <label htmlFor="">Last Name</label> <br />{" "}
+              <input className="border-2" type="text" /> <br />
+              <label htmlFor="">Email</label> <br />{" "}
+              <input className="border-2" type="email" />
+              <br /> <label htmlFor="">What can we do for you?</label>
+              <select name="" id="">
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+              </select>
+              <br />
+              <label htmlFor="">Phone Number</label>
+              <div class="flex items-center border rounded-lg px-3 py-2 w-96">
+                <select id="country-code" class="">
+                  <option value="+1">🇺🇸 +1</option>
+                  <option value="+44">🇬🇧 +44</option>
+                  <option value="+91">🇮🇳 +91</option>
+                  <option value="+977" selected>
+                    🇳🇵 +977
+                  </option>
+                </select>
+                <input type="number" id="" class="" />
+              </div>
+              <label for="message">Message</label>
+              <br />
+              <textarea
+                className="border-red-300"
+                id="message"
+                name="message"
+                rows="4"
+                cols="50"
+                placeholder="Type your message here..."
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
 
