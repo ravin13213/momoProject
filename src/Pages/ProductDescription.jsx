@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { CartContext } from "../context/CartProvider";
+import { useNavigate, useParams } from "react-router-dom";
+import { CartContext } from "../Context/CartProvider";
 
 function ProductDescription() {
+  const navigate = useNavigate()
   const { id } = useParams();
   const { dispatch } = useContext(CartContext);
   const [product, setProduct] = useState();
@@ -36,7 +37,15 @@ function ProductDescription() {
             </p>
             <p>{product.rating}</p>
             <div className="space-x-3">
-              <button className="bg-blue-500 text-white p-2">Buy Now</button>
+              <button onClick={()=>{
+                navigate("payment", {
+                  state:{
+                    toatlPrice: product.caloriesPerServing,
+                    totalItem:1
+                  }
+              })
+              }}
+              className="bg-blue-500 text-white p-2">Buy Now</button>
               <button
                 onClick={() => {
                   dispatch({ type: "AddToCart", payload: product });
